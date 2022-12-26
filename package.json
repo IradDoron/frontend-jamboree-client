@@ -15,6 +15,8 @@
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
 		"react-scripts-css-modules": "^0.9.4-patch1",
+		"react-transition-group": "^4.4.5",
+		"recoil": "^0.7.6",
 		"typescript": "^4.9.4",
 		"web-vitals": "^2.1.4"
 	},
@@ -45,6 +47,7 @@
 		]
 	},
 	"devDependencies": {
+		"@types/react-transition-group": "^4.4.5",
 		"node-sass-chokidar": "^2.0.0",
 		"react-css-modules": "^4.7.11",
 		"react-scripts": "^5.0.1",
