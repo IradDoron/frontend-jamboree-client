@@ -7,6 +7,11 @@ export const themeState = atom<Theme>({
 	default: themes.space,
 });
 
+export const currentThemeNameState = atom<string>({
+	key: 'currentThemeNameState',
+	default: 'space',
+});
+
 export const frontiumAmountState = atom<number>({
 	key: 'frontiumAmountState',
 	default: 0,

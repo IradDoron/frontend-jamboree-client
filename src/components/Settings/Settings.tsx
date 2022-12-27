@@ -1,11 +1,11 @@
 import { useState } from 'react';
 
-import styles from 'components/SettingButton/SettingButton.module.scss';
+import styles from 'components/Settings/Settings.module.scss';
 import { ThemeSwitcher } from 'components/ThemeSwitcher';
 import { useTheme } from 'hooks/useTheme';
 import { Modal } from 'shared/Modal';
 
-export const SettingButton = () => {
+export const Settings = () => {
 	const [isOpen, setIsOpen] = useState(false);
 	const { theme } = useTheme();
 	const handleClick = () => {
@@ -20,7 +20,7 @@ export const SettingButton = () => {
 					justifyContent: 'flex-end',
 				}}
 			>
-				<button className={styles.SettingButton} onClick={handleClick}>
+				<button className={styles.Settings} onClick={handleClick}>
 					<svg
 						width="30"
 						height="30"
@@ -34,8 +34,7 @@ export const SettingButton = () => {
 						/>
 					</svg>
 				</button>
-				<Modal isOpen={isOpen} closeModal={setIsOpen}>
-					<h1>Setting</h1>
+				<Modal isOpen={isOpen} closeModal={setIsOpen} title="Settings">
 					<ThemeSwitcher />
 				</Modal>
 			</div>

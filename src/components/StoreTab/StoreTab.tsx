@@ -11,9 +11,11 @@ export const StoreTab = () => {
 	return (
 		<>
 			<TabButton onClick={handleOpenModal}>Store</TabButton>
-			<Modal isOpen={isModalOpen} closeModal={setIsModalOpen}>
-				<h1>StoreTab</h1>
-			</Modal>
+			<Modal
+				isOpen={isModalOpen}
+				closeModal={setIsModalOpen}
+				title="Store"
+			></Modal>
 		</>
 	);
 };

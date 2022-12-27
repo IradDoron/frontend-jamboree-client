@@ -11,9 +11,11 @@ export const QuizTab = () => {
 	return (
 		<>
 			<TabButton onClick={handleOpenModal}>Quiz</TabButton>
-			<Modal isOpen={isModalOpen} closeModal={setIsModalOpen}>
-				<h1>QuizTab</h1>
-			</Modal>
+			<Modal
+				isOpen={isModalOpen}
+				closeModal={setIsModalOpen}
+				title="Quiz"
+			></Modal>
 		</>
 	);
 };

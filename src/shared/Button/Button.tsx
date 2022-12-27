@@ -2,7 +2,7 @@ import { useTheme } from 'hooks/useTheme';
 import styles from 'shared/Button/Button.module.scss';
 import { ButtonProps } from 'shared/Button/Button.types';
 
-export const Button = ({ children, onClick }: ButtonProps) => {
+export const Button = ({ children, onClick, sx }: ButtonProps) => {
 	const { theme } = useTheme();
 
 	return (
@@ -12,6 +12,7 @@ export const Button = ({ children, onClick }: ButtonProps) => {
 			style={{
 				color: theme.textColor,
 				backgroundColor: theme.primaryColor,
+				...sx,
 			}}
 		>
 			{children}

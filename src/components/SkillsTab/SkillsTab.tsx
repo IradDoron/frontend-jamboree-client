@@ -11,9 +11,11 @@ export const SkillsTab = () => {
 	return (
 		<>
 			<TabButton onClick={handleOpenModal}>Skills</TabButton>
-			<Modal isOpen={isModalOpen} closeModal={setIsModalOpen}>
-				<h1>SkillsTab</h1>
-			</Modal>
+			<Modal
+				isOpen={isModalOpen}
+				closeModal={setIsModalOpen}
+				title="Skills"
+			></Modal>
 		</>
 	);
 };

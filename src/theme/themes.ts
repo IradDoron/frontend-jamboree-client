@@ -10,7 +10,7 @@ export const themes: { [name: string]: Theme } = {
 	},
 	nature: {
 		primaryColor: '#8bc34a',
-		secondaryColor: '#f44336',
+		secondaryColor: '#f4e336',
 		accentColor: '#ff9800',
 		backgroundColor: '#4caf50',
 		textColor: '#ffffff',
