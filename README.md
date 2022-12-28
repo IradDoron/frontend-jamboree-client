@@ -9,6 +9,8 @@ Frontend Jamboree is a great resource for both beginner and experienced develope
 - [Links](#links)
 - [Libraries and technologies](#libraries-and-technologies)
 - [Theme](#theme)
+- [TODO](#todo)
+- [Features requests](#features-requests)
 
 ---
 
@@ -102,5 +104,11 @@ This theme uses a blue primary color and a white background, giving it a cold, w
 
 ---
 
+## TODO
 
+- [x] Build a quiz system
+
+## Features requests
+
+- [x] Build a quiz system
 
