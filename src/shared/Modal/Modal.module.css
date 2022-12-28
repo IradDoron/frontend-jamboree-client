@@ -1,0 +1,51 @@
+.Modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 100;
+  display: flex;
+  animation: openModal 0.3s ease-in-out; }
+
+.container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 32px; }
+
+.close-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+  border: none;
+  background: none; }
+
+.title {
+  font-size: 4rem;
+  font-weight: bold;
+  font-family: 'Press Start 2P', sans-serif;
+  font-variant-numeric: tabular-nums;
+  text-align: center;
+  width: 100%; }
+
+.fade-enter {
+  opacity: 0;
+  height: 0%; }
+
+.fade-enter-active {
+  opacity: 1;
+  height: 100%;
+  transition: opacity 300ms ease-in; }
+
+.fade-exit {
+  opacity: 1; }
+
+.fade-exit-active {
+  opacity: 0;
+  transition: opacity 300ms ease-out; }
