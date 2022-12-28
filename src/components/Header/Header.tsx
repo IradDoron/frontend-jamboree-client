@@ -1,5 +1,5 @@
 import { Frontium } from 'components/Frontium';
-import styles from 'components/Header/Header.module.scss';
+import styles from 'components/Header/Header.module.css';
 import { QuizTab } from 'components/QuizTab';
 import { Settings } from 'components/Settings';
 import { SkillsTab } from 'components/SkillsTab';

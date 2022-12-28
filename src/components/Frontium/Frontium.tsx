@@ -1,4 +1,4 @@
-import styles from 'components/Frontium/Frontium.module.scss';
+import styles from 'components/Frontium/Frontium.module.css';
 import { useTheme } from 'hooks/useTheme';
 import { useRecoilValue } from 'recoil';
 import { frontiumAmountState } from 'store';

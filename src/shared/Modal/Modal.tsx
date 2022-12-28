@@ -1,6 +1,6 @@
 import { useTheme } from 'hooks/useTheme';
 import { CSSTransition } from 'react-transition-group';
-import styles from 'shared/Modal/Modal.module.scss';
+import styles from 'shared/Modal/Modal.module.css';
 import { ModalProps } from 'shared/Modal/Modal.types';
 
 export const Modal = ({ children, closeModal, isOpen, title }: ModalProps) => {

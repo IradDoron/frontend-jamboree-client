@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import styles from 'components/Settings/Settings.module.scss';
+import styles from 'components/Settings/Settings.module.css';
 import { ThemeSwitcher } from 'components/ThemeSwitcher';
 import { useTheme } from 'hooks/useTheme';
 import { Modal } from 'shared/Modal';

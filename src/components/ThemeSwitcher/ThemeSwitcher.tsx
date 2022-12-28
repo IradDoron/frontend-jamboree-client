@@ -6,7 +6,7 @@ import { useTheme } from 'hooks/useTheme';
 import { Button } from 'shared';
 import { currentThemeNameState } from 'store';
 
-import styles from 'components/ThemeSwitcher/ThemeSwitcher.module.scss';
+import styles from 'components/ThemeSwitcher/ThemeSwitcher.module.css';
 
 export const ThemeSwitcher = () => {
 	const { setCurrentTheme } = useTheme();
