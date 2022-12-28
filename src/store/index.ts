@@ -16,3 +16,16 @@ export const frontiumAmountState = atom<number>({
 	key: 'frontiumAmountState',
 	default: 0,
 });
+
+export const skillsLevelState = atom({
+	key: 'skillsLevelState',
+	default: {
+		HTML: 1,
+		CSS: 1,
+		JavaScript: 1,
+		React: 1,
+		Redux: 1,
+		TypeScript: 1,
+		jQuery: 1,
+	},
+});

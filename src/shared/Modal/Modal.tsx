@@ -46,12 +46,12 @@ export const Modal = ({ children, closeModal, isOpen, title }: ModalProps) => {
 								<path
 									d="M 10 10 L 90 90"
 									stroke={theme.secondaryColor}
-									stroke-width="8"
+									strokeWidth="8"
 								/>
 								<path
 									d="M 10 90 L 90 10"
 									stroke={theme.secondaryColor}
-									stroke-width="8"
+									strokeWidth="8"
 								/>
 							</svg>
 						</button>
