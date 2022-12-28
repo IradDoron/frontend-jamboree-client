@@ -188,6 +188,10 @@ export const TrueFalseQuestion = ({
 	const [userChoice, setUserChoice] = useState<'true' | 'false' | null>(null);
 
 	useEffect(() => {
+		setUserChoice(null);
+	}, [question]);
+
+	useEffect(() => {
 		if (userChoice === null) {
 			return;
 		} else if (userChoice === 'true' && isCorrect) {
