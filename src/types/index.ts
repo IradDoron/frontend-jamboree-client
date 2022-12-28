@@ -90,3 +90,5 @@ export interface QuizFilters {
 	} | null;
 	difficulty?: number | null;
 }
+
+export type QuestionStatus = 'unanswered' | 'correct' | 'incorrect';

@@ -29,7 +29,7 @@ export const QuizTab = () => {
 		const questions = getQuizQuestions(
 			questionsSet,
 			solvedQuestionsIds,
-			10,
+			100,
 			'challenge',
 			undefined,
 			skillsLevel

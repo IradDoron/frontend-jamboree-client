@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { Dispatch, SetStateAction, useEffect, useState } from 'react';
 import { useRecoilValue } from 'recoil';
 
 import { useTheme } from 'hooks/useTheme';
@@ -6,6 +6,12 @@ import { useTheme } from 'hooks/useTheme';
 import { Button } from 'shared';
 
 import { questionsState } from 'store';
+
+import {
+	Question,
+	QuestionStatus,
+	TrueFalseQuestion as TrueFalseQuestionType,
+} from 'types';
 
 export const formatQuestionType = (type: string) => {
 	switch (type) {
@@ -27,6 +33,7 @@ export interface FlexSectionProps {
 	gap?: number;
 	sx?: React.CSSProperties;
 }
+
 export const FlexSection = ({ children, gap = 0, sx }: FlexSectionProps) => {
 	return (
 		<section
@@ -161,22 +168,261 @@ export const QuizQuestionType = ({ children }: QuizQuestionTypeProps) => {
 	);
 };
 
+export interface TrueFalseQuestionProps {
+	question: TrueFalseQuestionType;
+	setCurrentQuestionStatus: Dispatch<SetStateAction<QuestionStatus>>;
+	currentQuestionStatus: QuestionStatus;
+	isSubmitted: boolean;
+}
+
+export const TrueFalseQuestion = ({
+	question,
+	setCurrentQuestionStatus,
+	currentQuestionStatus,
+	isSubmitted,
+}: TrueFalseQuestionProps) => {
+	const { theme } = useTheme();
+	const { isCorrect, correctAnswer } = question;
+	const [userChoice, setUserChoice] = useState<'true' | 'false' | null>(null);
+
+	useEffect(() => {
+		if (userChoice === null) {
+			return;
+		} else if (userChoice === 'true' && isCorrect) {
+			setCurrentQuestionStatus('correct');
+		} else {
+			setCurrentQuestionStatus('incorrect');
+		}
+	}, [userChoice, isCorrect, setCurrentQuestionStatus]);
+
+	const handleTrueClick = () => {
+		if (isSubmitted) {
+			return null;
+		} else {
+			setUserChoice('true');
+		}
+	};
+
+	const handleFalseClick = () => {
+		if (isSubmitted) {
+			return null;
+		} else {
+			setUserChoice('false');
+		}
+	};
+
+	const defaultStyles = {
+		width: '200px',
+		height: '120px',
+		borderRadius: '8px',
+		fontSize: '4rem',
+	};
+
+	return (
+		<div
+			style={{
+				display: 'flex',
+				flexDirection: 'column',
+				gap: '16px',
+			}}
+		>
+			<div
+				style={{
+					display: 'flex',
+					flexDirection: 'row',
+					justifyContent: 'center',
+					alignContent: 'center',
+					gap: '32px',
+				}}
+			>
+				<Button
+					onClick={handleTrueClick}
+					sx={
+						userChoice === 'true'
+							? { backgroundColor: theme.secondaryColor, ...defaultStyles }
+							: {
+									backgroundColor: 'transparent',
+									outlineColor: theme.secondaryColor,
+									outlineStyle: 'solid',
+									outlineWidth: '6px',
+									...defaultStyles,
+							  }
+					}
+				>
+					True
+				</Button>
+				<Button
+					onClick={handleFalseClick}
+					sx={
+						userChoice === 'false'
+							? { backgroundColor: theme.secondaryColor, ...defaultStyles }
+							: {
+									backgroundColor: 'transparent',
+									outlineColor: theme.secondaryColor,
+									outlineStyle: 'solid',
+									outlineWidth: '6px',
+									...defaultStyles,
+							  }
+					}
+				>
+					False
+				</Button>
+			</div>
+			{isSubmitted && (
+				<div
+					style={{
+						display: 'flex',
+						flexDirection: 'row',
+						justifyContent: 'center',
+						alignContent: 'center',
+						gap: '32px',
+					}}
+				>
+					<p
+						style={{
+							fontSize: '3rem',
+							color: theme.secondaryColor,
+						}}
+					>
+						{currentQuestionStatus === 'correct' ? 'Correct!' : 'Not Quite :('}
+					</p>
+				</div>
+			)}
+			{isSubmitted && !isCorrect && (
+				<div>
+					<p
+						style={{
+							fontSize: '1.2rem',
+							color: theme.textColor,
+						}}
+					>
+						{correctAnswer}
+					</p>
+				</div>
+			)}
+		</div>
+	);
+};
+
+export interface MultipleChoiceQuestionProps {
+	question: Question;
+	setCurrentQuestionStatus: Dispatch<SetStateAction<QuestionStatus>>;
+}
+
+export const MultipleChoiceQuestion = ({
+	question,
+	setCurrentQuestionStatus,
+}: MultipleChoiceQuestionProps) => {
+	return (
+		<div>
+			<p>Multiple Choice</p>
+			<p>{question.questionText}</p>
+		</div>
+	);
+};
+
+export interface CodingChallengeQuestionProps {
+	question: Question;
+	setCurrentQuestionStatus: Dispatch<SetStateAction<QuestionStatus>>;
+}
+
+export const CodingChallengeQuestion = ({
+	question,
+	setCurrentQuestionStatus,
+}: CodingChallengeQuestionProps) => {
+	return (
+		<div>
+			<p>Coding Challenge</p>
+			<p>{question.questionText}</p>
+		</div>
+	);
+};
+
+export interface FillInTheBlankQuestionProps {
+	question: Question;
+	setCurrentQuestionStatus: Dispatch<SetStateAction<QuestionStatus>>;
+}
+
+export const FillInTheBlankQuestion = ({
+	question,
+	setCurrentQuestionStatus,
+}: FillInTheBlankQuestionProps) => {
+	return (
+		<div>
+			<p>Fill in the blank</p>
+			<p>{question.questionText}</p>
+		</div>
+	);
+};
+
+export interface QuizAnswerSectionProps {
+	question: Question;
+	setCurrentQuestionStatus: Dispatch<SetStateAction<QuestionStatus>>;
+	currentQuestionStatus: QuestionStatus;
+	isSubmitted: boolean;
+}
+
+export const QuizAnswerSection = ({
+	question,
+	setCurrentQuestionStatus,
+	currentQuestionStatus,
+	isSubmitted,
+}: QuizAnswerSectionProps) => {
+	const { questionType } = question;
+	switch (questionType) {
+		case 'true-false':
+			return (
+				<TrueFalseQuestion
+					question={question}
+					setCurrentQuestionStatus={setCurrentQuestionStatus}
+					currentQuestionStatus={currentQuestionStatus}
+					isSubmitted={isSubmitted}
+				/>
+			);
+		case 'multiple-choice':
+			return (
+				<MultipleChoiceQuestion
+					question={question}
+					setCurrentQuestionStatus={setCurrentQuestionStatus}
+				/>
+			);
+		case 'coding-challenge':
+			return (
+				<CodingChallengeQuestion
+					question={question}
+					setCurrentQuestionStatus={setCurrentQuestionStatus}
+				/>
+			);
+		case 'fill-in-the-blank':
+			return (
+				<FillInTheBlankQuestion
+					question={question}
+					setCurrentQuestionStatus={setCurrentQuestionStatus}
+				/>
+			);
+		default:
+			return <p>Unknown question type</p>;
+	}
+};
+
 export const Quiz = () => {
 	const questions = useRecoilValue(questionsState);
 	const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+	const [currentQuestionStatus, setCurrentQuestionStatus] =
+		useState<QuestionStatus>('unanswered');
+	const [isSubmitted, setIsSubmitted] = useState(false);
 
 	const handleSubmitClick = () => {
-		console.log('Submit Clicked');
+		setIsSubmitted(true);
 	};
 
 	const handleNextClick = () => {
-		console.log('Next Clicked');
 		if (currentQuestionIndex === questions.length - 1) return;
 		setCurrentQuestionIndex(currentQuestionIndex + 1);
+		setIsSubmitted(false);
 	};
 
 	const handleBackClick = () => {
-		console.log('Back Clicked');
 		if (currentQuestionIndex === 0) return;
 		setCurrentQuestionIndex(currentQuestionIndex - 1);
 	};
@@ -220,8 +466,17 @@ export const Quiz = () => {
 				<FlexSection>
 					<QuizQuestionText>{questionText}</QuizQuestionText>
 				</FlexSection>
-				<FlexSection>
-					<p>Place holder for the answers area</p>
+				<FlexSection
+					sx={{
+						margin: '32px 0',
+					}}
+				>
+					<QuizAnswerSection
+						question={questions[currentQuestionIndex]}
+						setCurrentQuestionStatus={setCurrentQuestionStatus}
+						currentQuestionStatus={currentQuestionStatus}
+						isSubmitted={isSubmitted}
+					/>
 				</FlexSection>
 				<FlexSection
 					gap={10}
@@ -230,9 +485,27 @@ export const Quiz = () => {
 						bottom: '16px',
 					}}
 				>
-					<Button onClick={handleBackClick}>Back</Button>
-					<Button onClick={handleSubmitClick}>Submit</Button>
-					<Button onClick={handleNextClick}>Next</Button>
+					<Button
+						onClick={handleBackClick}
+						isDisabled={currentQuestionStatus === 'unanswered'}
+					>
+						Back
+					</Button>
+					<Button
+						onClick={handleSubmitClick}
+						sx={{
+							fontSize: '2rem',
+							padding: '8px 16px',
+						}}
+					>
+						Submit
+					</Button>
+					<Button
+						onClick={handleNextClick}
+						isDisabled={currentQuestionStatus === 'unanswered'}
+					>
+						Next
+					</Button>
 				</FlexSection>
 			</QuizContainer>
 		</>
