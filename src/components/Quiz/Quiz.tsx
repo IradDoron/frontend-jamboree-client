@@ -23,6 +23,8 @@ export const formatQuestionType = (type: string) => {
 			return 'Coding Challenge';
 		case 'fill-in-the-blank':
 			return 'Fill in the Blank';
+		case 'short-answer':
+			return 'Short Answer';
 		default:
 			return 'Unknown';
 	}
@@ -420,11 +422,14 @@ export const Quiz = () => {
 		if (currentQuestionIndex === questions.length - 1) return;
 		setCurrentQuestionIndex(currentQuestionIndex + 1);
 		setIsSubmitted(false);
+		setCurrentQuestionStatus('unanswered');
 	};
 
 	const handleBackClick = () => {
 		if (currentQuestionIndex === 0) return;
 		setCurrentQuestionIndex(currentQuestionIndex - 1);
+		setIsSubmitted(false); // TODO: user should'nt be able to go back if the question has been submitted
+		setCurrentQuestionStatus('unanswered');
 	};
 
 	const { id, questionType, questionText, skills, tags } =
@@ -433,7 +438,7 @@ export const Quiz = () => {
 		<>
 			<QuizContainer
 				sx={{
-					height: '60vh',
+					height: '800px',
 				}}
 			>
 				<FlexSection
