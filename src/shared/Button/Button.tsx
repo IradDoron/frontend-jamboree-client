@@ -1,5 +1,5 @@
 import { useTheme } from 'hooks/useTheme';
-import styles from 'shared/Button/Button.module.css';
+import styles from 'shared/Button/Button.module.scss';
 import { ButtonProps } from 'shared/Button/Button.types';
 
 export const Button = ({ children, onClick, sx }: ButtonProps) => {

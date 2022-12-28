@@ -26,6 +26,7 @@ export const Modal = ({ children, closeModal, isOpen, title }: ModalProps) => {
 					className={styles.Modal}
 					style={{
 						backgroundColor: theme.backgroundColor,
+						color: theme.textColor,
 					}}
 				>
 					<div className={styles.container}>
@@ -55,14 +56,7 @@ export const Modal = ({ children, closeModal, isOpen, title }: ModalProps) => {
 								/>
 							</svg>
 						</button>
-						<h1
-							className={styles.title}
-							style={{
-								color: theme.textColor,
-							}}
-						>
-							{title}
-						</h1>
+						<h1 className={styles.title}>{title}</h1>
 						{children}
 					</div>
 				</div>

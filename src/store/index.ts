@@ -1,6 +1,7 @@
 import { atom } from 'recoil';
 import { themes } from 'theme/themes';
 import { Theme } from 'theme/types';
+import { Question } from 'types';
 
 export const themeState = atom<Theme>({
 	key: 'themeState',
@@ -28,4 +29,14 @@ export const skillsLevelState = atom({
 		TypeScript: 1,
 		jQuery: 1,
 	},
+});
+
+export const solvedQuestionsIdsState = atom<string[]>({
+	key: 'solvedQuestionsIdsState',
+	default: [],
+});
+
+export const questionsState = atom({
+	key: 'questionsState',
+	default: [] as Question[],
 });

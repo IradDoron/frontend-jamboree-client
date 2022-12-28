@@ -2,7 +2,6 @@ import {
 	Question,
 	QuizFilters,
 	QuizType,
-	Skill,
 	skillNames,
 	SkillNameType,
 } from 'types';
@@ -23,7 +22,7 @@ export const getQuizQuestions = (
 	quizType: QuizType,
 	filters: QuizFilters = defaultFilters,
 	userSkills: {
-		[key in SkillNameType]: Skill;
+		[key in SkillNameType]: number;
 	}
 ): Question[] => {
 	const {
@@ -31,8 +30,6 @@ export const getQuizQuestions = (
 		includeSkills,
 		excludeSkills,
 		relativeDifficulty,
-		difficultyRange,
-		difficulty,
 	} = filters;
 
 	const quizQuestions: Question[] = [];
@@ -87,7 +84,7 @@ export const getQuizQuestions = (
 			let flag = false;
 			for (let skill of skills) {
 				const { name, level } = skill;
-				const relativeSkillLevel = userSkills[name].level + relativeDifficulty;
+				const relativeSkillLevel = userSkills[name] + relativeDifficulty;
 				if (
 					relativeSkillLevel === level ||
 					relativeSkillLevel === level + 1 ||
@@ -111,12 +108,11 @@ export const getQuizQuestions = (
 		() => Math.random() - 0.5
 	);
 
-	quizQuestions.push(...shuffledQuestionsSet.slice(0, questionsAmount));
-
-	// TODO: Delete this after implementing difficultyRange filter and difficulty filter
-	console.log('difficultyRange', difficultyRange);
-	console.log('difficulty', difficulty);
-	console.log('quizType', quizType);
-
-	return quizQuestions;
+	if (shuffledQuestionsSet.length <= questionsAmount) {
+		quizQuestions.push(...shuffledQuestionsSet);
+		return quizQuestions;
+	} else {
+		quizQuestions.push(...shuffledQuestionsSet.slice(0, questionsAmount));
+		return quizQuestions;
+	}
 };
