@@ -16,6 +16,7 @@ export const QuizContainer = ({ children, sx }: QuizContainerProps) => {
 				width: '100%',
 				gap: '16px',
 				position: 'relative',
+
 				borderColor: theme.secondaryColor,
 				...sx,
 			}}

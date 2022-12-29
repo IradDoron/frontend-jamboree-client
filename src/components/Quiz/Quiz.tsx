@@ -13,7 +13,7 @@ import { QuizQuestionType } from 'components/Quiz/QuizQuestionType';
 import { QuizSkillChip } from 'components/Quiz/QuizSkillChip';
 import { QuizTagChip } from 'components/Quiz/QuizTagChip';
 
-import { QuizAnswerSection } from 'components/Quiz/QuizAnswerSection';
+import { QuizAnswerSection } from 'components/Quiz/QuizAnswerSection/QuizAnswerSection'; // TODO: check why index.ts is not working
 
 import { QuestionStatus } from 'types';
 
@@ -55,7 +55,8 @@ export const Quiz = () => {
 		<>
 			<QuizContainer
 				sx={{
-					height: '800px',
+					minHeight: '800px',
+					paddingBottom: '56px',
 				}}
 			>
 				<FlexSection

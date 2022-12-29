@@ -1,6 +1,7 @@
 import { CodingChallengeQuestion } from 'components/Quiz/CodingChallengeQuestion';
 import { FillInTheBlankQuestion } from 'components/Quiz/FillInTheBlankQuestion';
 import { MultipleChoiceQuestion } from 'components/Quiz/MultipleChoiceQuestion';
+import { ShortAnswerQuestion } from 'components/Quiz/ShortAnswerQuestion';
 import { TrueFalseQuestion } from 'components/Quiz/TrueFalseQuestion';
 
 import { QuizAnswerSectionProps } from 'components/Quiz/QuizAnswerSection/types';
@@ -43,6 +44,15 @@ export const QuizAnswerSection = ({
 				<FillInTheBlankQuestion
 					question={question}
 					setCurrentQuestionStatus={setCurrentQuestionStatus}
+				/>
+			);
+		case 'short-answer':
+			return (
+				<ShortAnswerQuestion
+					question={question}
+					setCurrentQuestionStatus={setCurrentQuestionStatus}
+					currentQuestionStatus={currentQuestionStatus}
+					isSubmitted={isSubmitted}
 				/>
 			);
 		default:
