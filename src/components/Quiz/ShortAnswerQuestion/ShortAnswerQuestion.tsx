@@ -17,6 +17,10 @@ export const ShortAnswerQuestion = ({
 	const { possibleAnswers } = question;
 
 	useEffect(() => {
+		setCurrentAnswer('');
+	}, [question, setCurrentAnswer]);
+
+	useEffect(() => {
 		if (isSubmitted) {
 			const isCorrect = possibleAnswers.includes(currentAnswer);
 			if (isCorrect) {
@@ -94,7 +98,13 @@ export const ShortAnswerQuestion = ({
 									color: theme.textColor,
 								}}
 							>
-								{answer}
+								<p
+									style={{
+										maxWidth: '70ch',
+									}}
+								>
+									{answer}
+								</p>
 							</li>
 						))}
 					</ul>
