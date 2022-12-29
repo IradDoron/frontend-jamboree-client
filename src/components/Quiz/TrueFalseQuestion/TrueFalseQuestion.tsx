@@ -25,7 +25,10 @@ export const TrueFalseQuestion = ({
 	useEffect(() => {
 		if (userChoice === null) {
 			return;
-		} else if (userChoice === 'true' && isCorrect) {
+		} else if (
+			(userChoice === 'true' && isCorrect) ||
+			(userChoice === 'false' && !isCorrect)
+		) {
 			setCurrentQuestionStatus('correct');
 		} else {
 			setCurrentQuestionStatus('incorrect');
