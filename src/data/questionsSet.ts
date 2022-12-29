@@ -1068,4 +1068,292 @@ export const questionsSet: Question[] = [
 		],
 		tags: ['JavaScript', 'Functions'],
 	},
+	{
+		id: '71',
+		questionType: 'short-answer',
+		questionText: 'What is HTML?',
+		possibleAnswers: [
+			'Markup language for creating web pages.',
+			'HyperText Markup Language.',
+		],
+		skills: [
+			{
+				name: 'HTML',
+				level: 1,
+			},
+		],
+		tags: ['HTML'],
+	},
+	{
+		id: '72',
+		questionType: 'short-answer',
+		questionText: 'What are HTML tags?',
+		possibleAnswers: [
+			'Elements that define the structure and layout of a web page.',
+		],
+		skills: [
+			{
+				name: 'HTML',
+				level: 1,
+			},
+		],
+		tags: ['HTML'],
+	},
+	{
+		id: '73',
+		questionType: 'short-answer',
+		questionText: 'What is the purpose of HTML?',
+		possibleAnswers: [
+			'To define the structure and layout of a web page.',
+			'To define the content of a web page.',
+		],
+		skills: [
+			{
+				name: 'HTML',
+				level: 1,
+			},
+		],
+		tags: ['HTML'],
+	},
+	{
+		id: '74',
+		questionType: 'short-answer',
+		questionText: 'What is the purpose of the <head> element?',
+		possibleAnswers: [
+			'To contain information about the web page, such as the title, metadata, and links to external resources.',
+		],
+		skills: [
+			{
+				name: 'HTML',
+				level: 1,
+			},
+		],
+		tags: ['HTML'],
+	},
+	{
+		id: '75',
+		questionType: 'short-answer',
+		questionText: 'What is the purpose of the <body> element?',
+		possibleAnswers: [
+			'To contain the content of the web page, such as text, images, and links to other pages.',
+		],
+		skills: [
+			{
+				name: 'HTML',
+				level: 1,
+			},
+		],
+		tags: ['HTML'],
+	},
+	{
+		id: '76',
+		questionType: 'short-answer',
+		questionText: 'What is the purpose of the <title> element?',
+		possibleAnswers: [
+			'To specify the title of the web page, which is displayed in the browser tab.',
+		],
+		skills: [
+			{
+				name: 'HTML',
+				level: 1,
+			},
+		],
+		tags: ['HTML'],
+	},
+	{
+		id: '77',
+		questionType: 'short-answer',
+		questionText: 'What is the purpose of the <h1> element?',
+		possibleAnswers: [
+			'To specify a heading for the web page, which is displayed as a large heading at the top of the page.',
+		],
+		skills: [
+			{
+				name: 'HTML',
+				level: 1,
+			},
+		],
+		tags: ['HTML'],
+	},
+	{
+		id: '78',
+		questionType: 'short-answer',
+		questionText: 'What is the purpose of the <p> element?',
+		possibleAnswers: [
+			'To specify a paragraph of text, which is displayed as a block of text with a blank line before and after it.',
+		],
+		skills: [
+			{
+				name: 'HTML',
+				level: 1,
+			},
+		],
+		tags: ['HTML'],
+	},
+	{
+		id: '79',
+		questionType: 'short-answer',
+		questionText: 'What is the purpose of the <img> element?',
+		possibleAnswers: [
+			'To specify an image, which is displayed on the web page.',
+		],
+		skills: [
+			{
+				name: 'HTML',
+				level: 1,
+			},
+		],
+
+		tags: ['HTML'],
+	},
+	{
+		id: '80',
+		questionType: 'short-answer',
+		questionText: 'What is the purpose of the <a> element?',
+		possibleAnswers: [
+			'To specify a hyperlink, which is displayed as a link that can be clicked to navigate to another web page.',
+		],
+		skills: [
+			{
+				name: 'HTML',
+				level: 1,
+			},
+		],
+		tags: ['HTML'],
+	},
+	{
+		id: '81',
+		questionType: 'short-answer',
+		questionText: 'What is the purpose of the <ul> element?',
+		possibleAnswers: [
+			'To specify an unordered list, which is displayed as a list of items with a bullet point before each item.',
+		],
+		skills: [
+			{
+				name: 'HTML',
+				level: 1,
+			},
+		],
+		tags: ['HTML'],
+	},
+	{
+		id: '82',
+		questionType: 'short-answer',
+		questionText: 'What is the purpose of the <ol> element?',
+		possibleAnswers: [
+			'To specify an ordered list, which is displayed as a list of items with a number before each item.',
+		],
+		skills: [
+			{
+				name: 'HTML',
+				level: 1,
+			},
+		],
+		tags: ['HTML'],
+	},
+	{
+		id: '83',
+		questionType: 'short-answer',
+		questionText: 'What is the purpose of the <li> element?',
+		possibleAnswers: [
+			'To specify a list item, which is displayed as a single item in a list.',
+		],
+		skills: [
+			{
+				name: 'HTML',
+				level: 1,
+			},
+		],
+		tags: ['HTML'],
+	},
+	{
+		id: '84',
+		questionType: 'short-answer',
+		questionText: 'What is the purpose of the <div> element?',
+		possibleAnswers: [
+			'To specify a division or section in a web page, which is displayed as a block of content with a blank line before and after it.',
+		],
+		skills: [
+			{
+				name: 'HTML',
+				level: 1,
+			},
+		],
+		tags: ['HTML'],
+	},
+	{
+		id: '85',
+		questionType: 'short-answer',
+		questionText: 'What is the purpose of the <span> element?',
+		possibleAnswers: [
+			'To specify a section in a web page, which is displayed as a block of content without a blank line before and after it.',
+		],
+		skills: [
+			{
+				name: 'HTML',
+				level: 1,
+			},
+		],
+		tags: ['HTML'],
+	},
+	{
+		id: '86',
+		questionType: 'short-answer',
+		questionText: 'What is a DOM?',
+		possibleAnswers: [
+			'A tree-like representation of a web page, allowing programs to access and manipulate the content, structure, and style of the page.',
+		],
+		skills: [
+			{
+				name: 'JavaScript',
+				level: 1,
+			},
+		],
+		tags: ['HTML', 'JavaScript'],
+	},
+	{
+		id: '87',
+		questionType: 'short-answer',
+		questionText: 'What is the purpose of the <script> element?',
+		possibleAnswers: [
+			'To specify a client-side script, which is executed by the web browser.',
+		],
+		skills: [
+			{
+				name: 'JavaScript',
+				level: 1,
+			},
+		],
+		tags: ['HTML', 'JavaScript'],
+	},
+	{
+		id: '88',
+		questionType: 'short-answer',
+		questionText: 'What is the purpose of the <style> element?',
+		possibleAnswers: [
+			'To specify style information for a web page, which is used to define the look and feel of the page.',
+		],
+		skills: [
+			{
+				name: 'CSS',
+				level: 1,
+			},
+		],
+		tags: ['HTML', 'CSS'],
+	},
+	{
+		id: '89',
+		questionType: 'short-answer',
+		questionText: 'What is a stylesheet?',
+		possibleAnswers: [
+			'A stylesheet is a file that contains style rules for formatting the layout and appearance of a document, such as an HTML page.',
+		],
+		skills: [
+			{
+				name: 'CSS',
+				level: 1,
+			},
+		],
+		tags: ['HTML', 'CSS'],
+	},
 ];
