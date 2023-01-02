@@ -1,4 +1,4 @@
-import { DifficultyTerm } from 'types';
+import { DifficultyTerm, QuizFilters, skillNames } from 'types';
 
 type DifficultyDictionary = {
 	[key in DifficultyTerm]: {
@@ -21,3 +21,12 @@ export const DIFFICULTY_DICTIONARY = {
 		max: 9,
 	},
 } as DifficultyDictionary;
+
+export const DEFAULT_FILTERS: QuizFilters = {
+	includeSolvedQuestions: false,
+	includeSkills: skillNames,
+	excludeSkills: [],
+	relativeDifficulty: 0,
+	difficultyRange: null,
+	difficulty: null,
+};

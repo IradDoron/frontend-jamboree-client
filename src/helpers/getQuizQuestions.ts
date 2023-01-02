@@ -1,26 +1,13 @@
-import {
-	Question,
-	QuizFilters,
-	QuizType,
-	skillNames,
-	SkillNameType,
-} from 'types';
+import { Question, QuizFilters, QuizType, SkillNameType } from 'types';
 
-const defaultFilters: QuizFilters = {
-	includeSolvedQuestions: false,
-	includeSkills: skillNames,
-	excludeSkills: [],
-	relativeDifficulty: 0,
-	difficultyRange: null,
-	difficulty: null,
-};
+import { DEFAULT_FILTERS } from 'global';
 
 export const getQuizQuestions = (
 	questionsSet: Question[],
 	solvedQuestionsIds: string[],
 	questionsAmount: number,
 	quizType: QuizType,
-	filters: QuizFilters = defaultFilters,
+	filters: QuizFilters = DEFAULT_FILTERS,
 	userSkills: {
 		[key in SkillNameType]: number;
 	}

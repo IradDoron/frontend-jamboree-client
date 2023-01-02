@@ -1356,4 +1356,298 @@ export const questionsSet: Question[] = [
 		],
 		tags: ['HTML', 'CSS'],
 	},
+	{
+		id: '90',
+		questionType: 'true-false',
+		questionText:
+			'The <img> element is an empty element that does not have a closing tag.',
+		isCorrect: true,
+		skills: [
+			{
+				name: 'HTML',
+				level: 1,
+			},
+		],
+		tags: ['HTML', '<img>'],
+	},
+	{
+		id: '91',
+		questionType: 'true-false',
+		questionText:
+			'The <img> element requires a "src" attribute to specify the source of the image.',
+		isCorrect: true,
+		skills: [
+			{
+				name: 'HTML',
+				level: 1,
+			},
+		],
+		tags: ['HTML', '<img>'],
+	},
+	{
+		id: '92',
+		questionType: 'true-false',
+		questionText: 'The "alt" attribute of the <img> element is optional.',
+		isCorrect: false,
+		correctAnswer: 'The "alt" attribute is required.',
+		skills: [
+			{
+				name: 'HTML',
+				level: 1,
+			},
+		],
+		tags: ['HTML', '<img>'],
+	},
+	{
+		id: '93',
+		questionType: 'true-false',
+		questionText:
+			'The "height" and "width" attributes of the <img> element specify the dimensions of the image in pixels.',
+		isCorrect: true,
+		skills: [
+			{
+				name: 'HTML',
+				level: 1,
+			},
+		],
+		tags: ['HTML', '<img>'],
+	},
+	{
+		id: '94',
+		questionType: 'true-false',
+		questionText:
+			'The "border" attribute of the <img> element specifies the width of the border around the image in pixels.',
+		isCorrect: true,
+		skills: [
+			{
+				name: 'HTML',
+				level: 1,
+			},
+		],
+		tags: ['HTML', '<img>'],
+	},
+	{
+		id: '95',
+		questionType: 'true-false',
+		questionText: 'The <img> element is an empty element.',
+		isCorrect: true,
+		skills: [
+			{
+				name: 'HTML',
+				level: 1,
+			},
+		],
+		tags: ['HTML', '<img>'],
+	},
+	{
+		id: '96',
+		questionType: 'true-false',
+		questionText: 'The <img> element is a block-level element.',
+		isCorrect: false,
+		correctAnswer: 'The <img> element is an inline element.',
+		skills: [
+			{
+				name: 'HTML',
+				level: 1,
+			},
+		],
+		tags: ['HTML', '<img>'],
+	},
+	{
+		id: '97',
+		questionType: 'true-false',
+		questionText:
+			'The "hspace" and "vspace" attributes of the <img> element specify the horizontal and vertical spaces around the image in pixels.',
+		isCorrect: true,
+		skills: [
+			{
+				name: 'HTML',
+				level: 1,
+			},
+		],
+		tags: ['HTML', '<img>'],
+	},
+	{
+		id: '98',
+		questionType: 'true-false',
+		questionText:
+			'The "align" attribute of the <img> element specifies the alignment of the image.',
+		isCorrect: true,
+		skills: [
+			{
+				name: 'HTML',
+				level: 1,
+			},
+		],
+		tags: ['HTML', '<img>'],
+	},
+	{
+		id: '99',
+		questionType: 'true-false',
+		questionText:
+			'The "longdesc" attribute of the <img> element specifies a URL that points to a long description of the image.',
+		isCorrect: true,
+		skills: [
+			{
+				name: 'HTML',
+				level: 1,
+			},
+		],
+		tags: ['HTML', '<img>'],
+	},
+	{
+		id: '100',
+		questionType: 'true-false',
+		questionText:
+			'The "alt" attribute should always be left blank if the image is being used as a decorative element.',
+		isCorrect: false,
+		correctAnswer:
+			'The "alt" attribute should either be left out or set to an empty string if the image is being used as a decorative element.',
+		skills: [
+			{
+				name: 'HTML',
+				level: 1,
+			},
+		],
+		tags: ['HTML', '<img>'],
+	},
+	{
+		id: '101',
+		questionType: 'true-false',
+		questionText:
+			'The "height" and "width" attributes are required for all images.',
+		isCorrect: false,
+		correctAnswer: 'The "height" and "width" attributes are optional.',
+		skills: [
+			{
+				name: 'HTML',
+				level: 1,
+			},
+		],
+		tags: ['HTML', '<img>'],
+	},
+	{
+		id: '102',
+		questionType: 'true-false',
+		questionText:
+			'The "hspace" and "vspace" attributes are supported in HTML5.',
+		isCorrect: false,
+		correctAnswer:
+			'The "hspace" and "vspace" attributes are deprecated in HTML5 and should not be used.',
+		skills: [
+			{
+				name: 'HTML',
+				level: 1,
+			},
+		],
+		tags: ['HTML', '<img>'],
+	},
+	{
+		id: '103',
+		questionType: 'true-false',
+		questionText: 'The "align" attribute is supported in HTML5.',
+		isCorrect: false,
+		correctAnswer:
+			'The "align" attribute is deprecated in HTML5 and should not be used.',
+		skills: [
+			{
+				name: 'HTML',
+				level: 1,
+			},
+		],
+		tags: ['HTML', '<img>'],
+	},
+	{
+		id: '104',
+		questionType: 'true-false',
+		questionText: 'The "longdesc" attribute is widely supported by browsers.',
+		isCorrect: false,
+		correctAnswer:
+			'The "longdesc" attribute is not widely supported by browsers.',
+		skills: [
+			{
+				name: 'HTML',
+				level: 1,
+			},
+		],
+		tags: ['HTML', '<img>'],
+	},
+	{
+		id: '105',
+		questionType: 'true-false',
+		questionText: 'GIF is the best file format for all types of images.',
+		isCorrect: false,
+		correctAnswer:
+			'GIF is best for graphics with few colors, JPEG is best for photographs, and PNG is best for graphics with transparent backgrounds or images with text or sharp lines.',
+		skills: [
+			{
+				name: 'HTML',
+				level: 1,
+			},
+		],
+		tags: ['HTML', '<img>'],
+	},
+	{
+		id: '106',
+		questionType: 'true-false',
+		questionText: 'Compressing images is not important for performance.',
+		isCorrect: false,
+		correctAnswer:
+			'Compressing images can improve the performance of your website and reduce the amount of data that users need to download.',
+		skills: [
+			{
+				name: 'HTML',
+				level: 1,
+			},
+		],
+		tags: ['HTML', '<img>'],
+	},
+	{
+		id: '107',
+		questionType: 'true-false',
+		questionText:
+			'Responsive images are not necessary for images to look good on different devices and screen sizes.',
+		isCorrect: false,
+		correctAnswer:
+			'Responsive images are important to ensure that images look good on different devices and screen sizes.',
+		skills: [
+			{
+				name: 'HTML',
+				level: 1,
+			},
+		],
+		tags: ['HTML', '<img>'],
+	},
+	{
+		id: '108',
+		questionType: 'true-false',
+		questionText:
+			'Responsive images are not necessary for images to look good on different devices and screen sizes.',
+		isCorrect: false,
+		correctAnswer:
+			'The <figure> and <figcaption> elements can be used to group an image with a caption and can improve accessibility.',
+		skills: [
+			{
+				name: 'HTML',
+				level: 1,
+			},
+		],
+		tags: ['HTML', '<img>'],
+	},
+	{
+		id: '109',
+		questionType: 'true-false',
+		questionText:
+			'It is always best to use the "longdesc" attribute to provide a detailed description of an image.',
+		isCorrect: false,
+		correctAnswer:
+			'The "longdesc" attribute is not widely supported by browsers and is not commonly used. Instead, consider using a regular link to a separate page with a detailed description of the image.',
+		skills: [
+			{
+				name: 'HTML',
+				level: 1,
+			},
+		],
+		tags: ['HTML', '<img>'],
+	},
 ];

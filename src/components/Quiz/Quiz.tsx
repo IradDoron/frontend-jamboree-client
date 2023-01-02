@@ -3,7 +3,7 @@ import { useRecoilValue } from 'recoil';
 
 import { Button } from 'shared';
 
-import { questionsState } from 'store';
+import { quizQuestionsState } from 'store';
 
 import { FlexSection } from 'shared/FlexSection';
 
@@ -20,7 +20,7 @@ import { QuestionStatus } from 'types';
 import { formatQuestionType } from 'helpers/formatQuestionType';
 
 export const Quiz = () => {
-	const questions = useRecoilValue(questionsState);
+	const quizQuestions = useRecoilValue(quizQuestionsState);
 	const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
 	const [currentQuestionStatus, setCurrentQuestionStatus] =
 		useState<QuestionStatus>('unanswered');
@@ -29,14 +29,14 @@ export const Quiz = () => {
 	useEffect(() => {
 		setCurrentQuestionIndex(0);
 		setCurrentQuestionStatus('unanswered');
-	}, [questions]);
+	}, [quizQuestions]);
 
 	const handleSubmitClick = () => {
 		setIsSubmitted(true);
 	};
 
 	const handleNextClick = () => {
-		if (currentQuestionIndex === questions.length - 1) return;
+		if (currentQuestionIndex === quizQuestions.length - 1) return;
 		setCurrentQuestionIndex(currentQuestionIndex + 1);
 		setIsSubmitted(false);
 		setCurrentQuestionStatus('unanswered');
@@ -50,7 +50,7 @@ export const Quiz = () => {
 	};
 
 	const { id, questionType, questionText, skills, tags } =
-		questions[currentQuestionIndex];
+		quizQuestions[currentQuestionIndex];
 	return (
 		<>
 			<QuizContainer
@@ -67,7 +67,7 @@ export const Quiz = () => {
 					}}
 				>
 					<p>Question ID: {id}</p>
-					<p>{`${currentQuestionIndex + 1} / ${questions.length}`}</p>
+					<p>{`${currentQuestionIndex + 1} / ${quizQuestions.length}`}</p>
 				</FlexSection>
 				<FlexSection gap={8}>
 					{skills.map((skill) => {
@@ -95,7 +95,7 @@ export const Quiz = () => {
 					}}
 				>
 					<QuizAnswerSection
-						question={questions[currentQuestionIndex]}
+						question={quizQuestions[currentQuestionIndex]}
 						setCurrentQuestionStatus={setCurrentQuestionStatus}
 						currentQuestionStatus={currentQuestionStatus}
 						isSubmitted={isSubmitted}

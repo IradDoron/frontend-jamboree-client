@@ -40,3 +40,13 @@ export const questionsState = atom({
 	key: 'questionsState',
 	default: [] as Question[],
 });
+
+export const quizQuestionsState = atom({
+	key: 'quizQuestionsState',
+	default: [] as Question[],
+});
+
+export const quizFilteredQuestionsState = atom({
+	key: 'quizFilteredQuestionsState',
+	default: [] as Question[],
+});

@@ -1,4 +1,4 @@
-import { useRecoilValue } from 'recoil';
+import { useRecoilValue, useSetRecoilState } from 'recoil';
 
 import styles from 'App.module.css';
 
@@ -7,11 +7,30 @@ import { Quiz } from 'components/Quiz';
 
 import { useTheme } from 'hooks/useTheme';
 
-import { questionsState } from 'store';
+import { useEffect } from 'react';
+import {
+	questionsState,
+	quizFilteredQuestionsState,
+	quizQuestionsState,
+} from 'store';
+
+import { questionsSet } from 'data/questionsSet';
 
 export const App = () => {
 	const { theme } = useTheme();
 	const questions = useRecoilValue(questionsState);
+	const setQuestions = useSetRecoilState(questionsState);
+	const setQuizFilteredQuestions = useSetRecoilState(
+		quizFilteredQuestionsState
+	);
+	const setQuizQuestions = useSetRecoilState(quizQuestionsState);
+
+	useEffect(() => {
+		setQuestions(questionsSet);
+		setQuizFilteredQuestions(questionsSet);
+		setQuizQuestions(questionsSet);
+	}, [setQuestions, setQuizFilteredQuestions, setQuizQuestions]);
+
 	return (
 		<div
 			className={styles.App}
