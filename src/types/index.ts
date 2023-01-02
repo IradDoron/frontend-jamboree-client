@@ -89,6 +89,7 @@ export interface QuizFilters {
 		max: number;
 	} | null;
 	difficulty?: number | null;
+	questionsTypes?: QuestionType[];
 }
 
 export type QuestionStatus = 'unanswered' | 'correct' | 'incorrect';

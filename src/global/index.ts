@@ -29,4 +29,5 @@ export const DEFAULT_FILTERS: QuizFilters = {
 	relativeDifficulty: 0,
 	difficultyRange: null,
 	difficulty: null,
+	questionsTypes: ['true-false', 'multiple-choice', 'short-answer'],
 };

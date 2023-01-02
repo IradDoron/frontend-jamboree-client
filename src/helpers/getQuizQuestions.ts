@@ -17,6 +17,7 @@ export const getQuizQuestions = (
 		includeSkills,
 		excludeSkills,
 		relativeDifficulty,
+		questionsTypes,
 	} = filters;
 
 	const quizQuestions: Question[] = [];
@@ -65,8 +66,18 @@ export const getQuizQuestions = (
 		filteredSkillsQuestionsSet.push(...filteredExcludedSkillsQuestionsSet);
 	}
 
+	const filteredQuestionsTypesSet = filteredSkillsQuestionsSet.filter(
+		(question) => {
+			if (!questionsTypes) {
+				return true;
+			} else {
+				return questionsTypes.includes(question.questionType);
+			}
+		}
+	);
+
 	const filteredRelativeDifficultyQuestionsSet =
-		filteredSkillsQuestionsSet.filter((question) => {
+		filteredQuestionsTypesSet.filter((question) => {
 			const { skills } = question;
 			let flag = false;
 			for (let skill of skills) {
