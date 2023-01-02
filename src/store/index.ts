@@ -50,3 +50,13 @@ export const quizFilteredQuestionsState = atom({
 	key: 'quizFilteredQuestionsState',
 	default: [] as Question[],
 });
+
+export const isQuizStartedState = atom({
+	key: 'isQuizStartedState',
+	default: false,
+});
+
+export const currentQuestionIndexState = atom({
+	key: 'currentQuestionIndexState',
+	default: 0,
+});

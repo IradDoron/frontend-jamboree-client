@@ -6,6 +6,8 @@ import { Modal } from 'shared/Modal';
 import { TabButton } from 'shared/TabButton';
 
 import {
+	currentQuestionIndexState,
+	isQuizStartedState,
 	quizFilteredQuestionsState,
 	quizQuestionsState,
 	skillsLevelState,
@@ -24,11 +26,13 @@ import { AvailableQuestionsNumber } from 'components/QuizTab/AvailableQuestionsN
 import { QuestionsAmount } from 'components/QuizTab/QuestionsAmount';
 
 export const QuizTab = () => {
-	const [isModalOpen, setIsModalOpen] = useState(true);
+	const [isModalOpen, setIsModalOpen] = useState(false);
 	const skillsLevel = useRecoilValue(skillsLevelState);
 	const solvedQuestionsIds = useRecoilValue(solvedQuestionsIdsState);
 	const quizFilteredQuestions = useRecoilValue(quizFilteredQuestionsState);
 	const setQuizQuestions = useSetRecoilState(quizQuestionsState);
+	const setIsQuizStarted = useSetRecoilState(isQuizStartedState);
+	const setCurrentQuestionIndex = useSetRecoilState(currentQuestionIndexState);
 
 	const [tempAllQuizQuestions, setTempAllQuizQuestions] = useState<Question[]>(
 		[]
@@ -40,13 +44,13 @@ export const QuizTab = () => {
 		const questions = getQuizQuestions(
 			questionsSet,
 			solvedQuestionsIds,
-			10,
+			questionsAmount,
 			'challenge',
 			DEFAULT_FILTERS,
 			skillsLevel
 		);
 		setTempAllQuizQuestions(questions);
-	}, [skillsLevel, solvedQuestionsIds]);
+	}, [skillsLevel, solvedQuestionsIds, questionsAmount]);
 
 	const handleQuestionsAmountChange = (
 		e: React.ChangeEvent<HTMLInputElement>
@@ -62,6 +66,8 @@ export const QuizTab = () => {
 	const handleGetQuizClick = () => {
 		setIsModalOpen(false);
 		setQuizQuestions(tempAllQuizQuestions);
+		setIsQuizStarted(true);
+		setCurrentQuestionIndex(0);
 	};
 
 	return (

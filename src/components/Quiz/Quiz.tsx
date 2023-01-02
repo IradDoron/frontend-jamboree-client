@@ -1,9 +1,13 @@
 import { useEffect, useState } from 'react';
-import { useRecoilValue } from 'recoil';
+import { useRecoilState, useRecoilValue } from 'recoil';
 
 import { Button } from 'shared';
 
-import { quizQuestionsState } from 'store';
+import {
+	currentQuestionIndexState,
+	isQuizStartedState,
+	quizQuestionsState,
+} from 'store';
 
 import { FlexSection } from 'shared/FlexSection';
 
@@ -21,15 +25,18 @@ import { formatQuestionType } from 'helpers/formatQuestionType';
 
 export const Quiz = () => {
 	const quizQuestions = useRecoilValue(quizQuestionsState);
-	const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+	const [currentQuestionIndex, setCurrentQuestionIndex] = useRecoilState(
+		currentQuestionIndexState
+	);
 	const [currentQuestionStatus, setCurrentQuestionStatus] =
 		useState<QuestionStatus>('unanswered');
 	const [isSubmitted, setIsSubmitted] = useState(false);
+	const isQuizStarted = useRecoilValue(isQuizStartedState);
 
 	useEffect(() => {
 		setCurrentQuestionIndex(0);
 		setCurrentQuestionStatus('unanswered');
-	}, [quizQuestions]);
+	}, [quizQuestions, setCurrentQuestionIndex]);
 
 	const handleSubmitClick = () => {
 		setIsSubmitted(true);
@@ -53,84 +60,86 @@ export const Quiz = () => {
 		quizQuestions[currentQuestionIndex];
 	return (
 		<>
-			<QuizContainer
-				sx={{
-					minHeight: '800px',
-					paddingBottom: '56px',
-				}}
-			>
-				<FlexSection
+			{isQuizStarted && (
+				<QuizContainer
 					sx={{
-						justifyContent: 'space-between',
-						padding: '8px 16px',
-						fontSize: '1.6rem',
+						minHeight: '800px',
+						paddingBottom: '56px',
 					}}
 				>
-					<p>Question ID: {id}</p>
-					<p>{`${currentQuestionIndex + 1} / ${quizQuestions.length}`}</p>
-				</FlexSection>
-				<FlexSection gap={8}>
-					{skills.map((skill) => {
-						const { name, level } = skill;
-						return <QuizSkillChip name={name} level={level} />;
-					})}
-				</FlexSection>
-				<FlexSection gap={8}>
-					{tags.map((tag) => {
-						return <QuizTagChip name={tag} />;
-					})}
-				</FlexSection>
-				<FlexSection>
-					<QuizQuestionType>
-						{formatQuestionType(questionType)}
-					</QuizQuestionType>
-				</FlexSection>
-
-				<FlexSection>
-					<QuizQuestionText>{questionText}</QuizQuestionText>
-				</FlexSection>
-				<FlexSection
-					sx={{
-						margin: '32px 0',
-					}}
-				>
-					<QuizAnswerSection
-						question={quizQuestions[currentQuestionIndex]}
-						setCurrentQuestionStatus={setCurrentQuestionStatus}
-						currentQuestionStatus={currentQuestionStatus}
-						isSubmitted={isSubmitted}
-					/>
-				</FlexSection>
-				<FlexSection
-					gap={10}
-					sx={{
-						position: 'absolute',
-						bottom: '16px',
-					}}
-				>
-					<Button
-						onClick={handleBackClick}
-						isDisabled={currentQuestionStatus === 'unanswered'}
-					>
-						Back
-					</Button>
-					<Button
-						onClick={handleSubmitClick}
+					<FlexSection
 						sx={{
-							fontSize: '2rem',
+							justifyContent: 'space-between',
 							padding: '8px 16px',
+							fontSize: '1.6rem',
 						}}
 					>
-						Submit
-					</Button>
-					<Button
-						onClick={handleNextClick}
-						isDisabled={currentQuestionStatus === 'unanswered'}
+						<p>Question ID: {id}</p>
+						<p>{`${currentQuestionIndex + 1} / ${quizQuestions.length}`}</p>
+					</FlexSection>
+					<FlexSection gap={8}>
+						{skills.map((skill) => {
+							const { name, level } = skill;
+							return <QuizSkillChip name={name} level={level} />;
+						})}
+					</FlexSection>
+					<FlexSection gap={8}>
+						{tags.map((tag) => {
+							return <QuizTagChip name={tag} />;
+						})}
+					</FlexSection>
+					<FlexSection>
+						<QuizQuestionType>
+							{formatQuestionType(questionType)}
+						</QuizQuestionType>
+					</FlexSection>
+
+					<FlexSection>
+						<QuizQuestionText>{questionText}</QuizQuestionText>
+					</FlexSection>
+					<FlexSection
+						sx={{
+							margin: '32px 0',
+						}}
 					>
-						Next
-					</Button>
-				</FlexSection>
-			</QuizContainer>
+						<QuizAnswerSection
+							question={quizQuestions[currentQuestionIndex]}
+							setCurrentQuestionStatus={setCurrentQuestionStatus}
+							currentQuestionStatus={currentQuestionStatus}
+							isSubmitted={isSubmitted}
+						/>
+					</FlexSection>
+					<FlexSection
+						gap={10}
+						sx={{
+							position: 'absolute',
+							bottom: '16px',
+						}}
+					>
+						<Button
+							onClick={handleBackClick}
+							isDisabled={currentQuestionStatus === 'unanswered'}
+						>
+							Back
+						</Button>
+						<Button
+							onClick={handleSubmitClick}
+							sx={{
+								fontSize: '2rem',
+								padding: '8px 16px',
+							}}
+						>
+							Submit
+						</Button>
+						<Button
+							onClick={handleNextClick}
+							isDisabled={currentQuestionStatus === 'unanswered'}
+						>
+							Next
+						</Button>
+					</FlexSection>
+				</QuizContainer>
+			)}
 		</>
 	);
 };
